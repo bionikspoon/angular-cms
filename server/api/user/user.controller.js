@@ -16,7 +16,7 @@ var validationError = function (res, err) {
 exports.index = function (req, res) {
   User.find({}, '-salt -hashedPassword', function (err, users) {
     if (err) return res.send(500, err);
-    res.json(200, users);
+    res.status(200).json(users);
   });
 };
 
@@ -29,7 +29,8 @@ exports.create = function (req, res, next) {
   newUser.role = 'user';
   newUser.save(function (err, user) {
     if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id}, config.secrets.session,
+    var token = jwt.sign({_id: user._id},
+      config.secrets.session,
       {expiresInMinutes: 60 * 5});
     res.json({token: token});
   });
@@ -43,7 +44,7 @@ exports.show = function (req, res, next) {
 
   User.findById(userId, function (err, user) {
     if (err) return next(err);
-    if (!user) return res.send(401);
+    if (!user) return res.sendStatus(401);
     res.json(user.profile);
   });
 };
@@ -55,7 +56,7 @@ exports.show = function (req, res, next) {
 exports.destroy = function (req, res) {
   User.findByIdAndRemove(req.params.id, function (err, user) {
     if (err) return res.send(500, err);
-    return res.send(204);
+    return res.sendStatus(204);
   });
 };
 
@@ -72,10 +73,10 @@ exports.changePassword = function (req, res, next) {
       user.password = newPass;
       user.save(function (err) {
         if (err) return validationError(res, err);
-        res.send(200);
+        res.sendStatus(200);
       });
     } else {
-      res.send(403);
+      res.sendStatus(403);
     }
   });
 };
