@@ -1,12 +1,14 @@
 'use strict';
 
-angular.module('angularCmsApp')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+//noinspection OverlyComplexFunctionJS
+angular.module('angularCmsApp').factory('Auth',
+  function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
     var currentUser = {};
-    if($cookieStore.get('token')) {
+    if ($cookieStore.get('token')) {
       currentUser = User.get();
     }
 
+    //noinspection JSUnusedGlobalSymbols
     return {
 
       /**
@@ -14,27 +16,28 @@ angular.module('angularCmsApp')
        *
        * @param  {Object}   user     - login info
        * @param  {Function} callback - optional
-       * @return {Promise}
+       * @return {deferred.promise|{then, always}}
        */
-      login: function(user, callback) {
+      login: function (user, callback) {
         var cb = callback || angular.noop;
         var deferred = $q.defer();
 
         $http.post('/auth/local', {
           email: user.email,
           password: user.password
-        }).
-        success(function(data) {
-          $cookieStore.put('token', data.token);
-          currentUser = User.get();
-          deferred.resolve(data);
-          return cb();
-        }).
-        error(function(err) {
-          this.logout();
-          deferred.reject(err);
-          return cb(err);
-        }.bind(this));
+        }) //
+          .success(function (data) {
+            $cookieStore.put('token', data.token);
+            currentUser = User.get();
+            deferred.resolve(data);
+            return cb();
+          }) //
+          .error(function (err) {
+            this.logout();
+            deferred.reject(err);
+            return cb(err);
+          } //
+            .bind(this));
 
         return deferred.promise;
       },
@@ -42,9 +45,8 @@ angular.module('angularCmsApp')
       /**
        * Delete access token and user info
        *
-       * @param  {Function}
        */
-      logout: function() {
+      logout: function () {
         $cookieStore.remove('token');
         currentUser = {};
       },
@@ -54,21 +56,19 @@ angular.module('angularCmsApp')
        *
        * @param  {Object}   user     - user info
        * @param  {Function} callback - optional
-       * @return {Promise}
+       * @return {angular.IPromise<Array<T>>}
        */
-      createUser: function(user, callback) {
+      createUser: function (user, callback) {
         var cb = callback || angular.noop;
 
-        return User.save(user,
-          function(data) {
-            $cookieStore.put('token', data.token);
-            currentUser = User.get();
-            return cb(user);
-          },
-          function(err) {
-            this.logout();
-            return cb(err);
-          }.bind(this)).$promise;
+        return User.save(user, function (data) {
+          $cookieStore.put('token', data.token);
+          currentUser = User.get();
+          return cb(user);
+        }, function (err) {
+          this.logout();
+          return cb(err);
+        }.bind(this)).$promise;
       },
 
       /**
@@ -79,17 +79,19 @@ angular.module('angularCmsApp')
        * @param  {Function} callback    - optional
        * @return {Promise}
        */
-      changePassword: function(oldPassword, newPassword, callback) {
+      changePassword: function (oldPassword, newPassword, callback) {
         var cb = callback || angular.noop;
 
-        return User.changePassword({ id: currentUser._id }, {
-          oldPassword: oldPassword,
-          newPassword: newPassword
-        }, function(user) {
-          return cb(user);
-        }, function(err) {
-          return cb(err);
-        }).$promise;
+        return User.changePassword( //
+          {id: currentUser._id}, {
+            oldPassword: oldPassword,
+            newPassword: newPassword
+          }, function (user) {
+            return cb(user);
+          }, function (err) {
+            return cb(err);
+          } //
+        ).$promise;
       },
 
       /**
@@ -97,7 +99,7 @@ angular.module('angularCmsApp')
        *
        * @return {Object} user
        */
-      getCurrentUser: function() {
+      getCurrentUser: function () {
         return currentUser;
       },
 
@@ -106,21 +108,21 @@ angular.module('angularCmsApp')
        *
        * @return {Boolean}
        */
-      isLoggedIn: function() {
+      isLoggedIn: function () {
         return currentUser.hasOwnProperty('role');
       },
 
       /**
        * Waits for currentUser to resolve before checking if user is logged in
        */
-      isLoggedInAsync: function(cb) {
-        if(currentUser.hasOwnProperty('$promise')) {
-          currentUser.$promise.then(function() {
+      isLoggedInAsync: function (cb) {
+        if (currentUser.hasOwnProperty('$promise')) {
+          currentUser.$promise.then(function () {
             cb(true);
-          }).catch(function() {
+          }).catch(function () {
             cb(false);
           });
-        } else if(currentUser.hasOwnProperty('role')) {
+        } else if (currentUser.hasOwnProperty('role')) {
           cb(true);
         } else {
           cb(false);
@@ -132,14 +134,14 @@ angular.module('angularCmsApp')
        *
        * @return {Boolean}
        */
-      isAdmin: function() {
+      isAdmin: function () {
         return currentUser.role === 'admin';
       },
 
       /**
        * Get auth token
        */
-      getToken: function() {
+      getToken: function () {
         return $cookieStore.get('token');
       }
     };
