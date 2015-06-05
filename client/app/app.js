@@ -7,8 +7,10 @@ angular.module('angularCmsApp', [
   'ngRoute',
   'btford.socket-io'
 ])
+
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
+
       .otherwise({
         redirectTo: '/'
       });
@@ -17,7 +19,8 @@ angular.module('angularCmsApp', [
     $httpProvider.interceptors.push('authInterceptor');
   })
 
-  .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
+  .factory('authInterceptor',
+  function ($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers
       request: function (config) {
@@ -29,14 +32,13 @@ angular.module('angularCmsApp', [
       },
 
       // Intercept 401s and redirect you to login
-      responseError: function(response) {
-        if(response.status === 401) {
+      responseError: function (response) {
+        if (response.status === 401) {
           $location.path('/login');
           // remove any stale tokens
           $cookieStore.remove('token');
           return $q.reject(response);
-        }
-        else {
+        } else {
           return $q.reject(response);
         }
       }
@@ -46,7 +48,7 @@ angular.module('angularCmsApp', [
   .run(function ($rootScope, $location, Auth) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      Auth.isLoggedInAsync(function(loggedIn) {
+      Auth.isLoggedInAsync(function (loggedIn) {
         if (next.authenticate && !loggedIn) {
           $location.path('/login');
         }
