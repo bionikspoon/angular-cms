@@ -22,6 +22,7 @@ exports.show = function (req, res) {
 
 // Creates a new page in the DB.
 exports.create = function (req, res) {
+  req.body.date = new Date(Date.now());
   Page.create(req.body, function (err, page) {
     if (err) { return handleError(res, err); }
     return res.json(201, page);

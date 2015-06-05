@@ -4,9 +4,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PageSchema = new Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  title: String,
+  url: {
+    type: String,
+    index: {unique: true}
+  },
+  content: String,
+  menuIndex: Number,
+  date: Date
 });
 
 module.exports = mongoose.model('Page', PageSchema);
