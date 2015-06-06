@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 angular.module('AngularCMSApp')
@@ -26,3 +27,4 @@ angular.module('AngularCMSApp')
       socket.unsyncUpdates('thing');
     });
   });
+*/

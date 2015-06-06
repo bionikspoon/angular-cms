@@ -1,23 +1,35 @@
 'use strict';
 
 angular.module('AngularCMSApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
 
-    $scope.isCollapsed = true;
-    $scope.isLoggedIn = Auth.isLoggedIn;
-    $scope.isAdmin = Auth.isAdmin;
-    $scope.getCurrentUser = Auth.getCurrentUser;
-
-    $scope.logout = function() {
-      Auth.logout();
-      $location.path('/login');
+  .controller('NavbarCtrl',
+  function ($scope, $location, $log, Auth, PagesFactory) {
+    var isAdminPath = function () {
+      return ($location.path().substring(0, 6) === '/admin');
     };
 
-    $scope.isActive = function(route) {
+    if (isAdminPath()) {
+      $scope.menu = [
+        {
+          title: 'Pages',
+          link: 'admin'
+        },
+        {
+          title: 'Site Settings',
+          url: 'admin/site-settings'
+        }
+      ];
+    } else {
+      PagesFactory.getPages()//
+        .then(function (response) {
+          $scope.menu = response.data;
+        })//
+        .catch(function (error) {
+          $log.debug('navbar.controller    ', 'error: ', error);
+        });
+    }
+
+    $scope.isActive = function (route) {
       return route === $location.path();
     };
   });

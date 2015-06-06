@@ -4,9 +4,11 @@
 angular.module('AngularCMSApp')
 
   .factory('Auth',
-  function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+  function Auth($location, $rootScope, $http, $log, User, $cookieStore, $q) {
     var currentUser = {};
+
     if ($cookieStore.get('token')) {
+
       currentUser = User.get();
     }
 
@@ -49,8 +51,13 @@ angular.module('AngularCMSApp')
        *
        */
       logout: function () {
+
+
         $cookieStore.remove('token');
+
         currentUser = {};
+        $log.debug('auth.service    ', 'currentUser: ', currentUser);
+
       },
 
       /**

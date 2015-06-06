@@ -1,4 +1,3 @@
-/*
 'use strict';
 
 angular.module('AngularCMSApp')
@@ -6,9 +5,8 @@ angular.module('AngularCMSApp')
   .config(function ($routeProvider) {
     $routeProvider
 
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+      .when('/pages/:url', {
+        templateUrl: 'app/pages/pages.html',
+        controller: 'PagesCtrl'
       });
   });
-*/

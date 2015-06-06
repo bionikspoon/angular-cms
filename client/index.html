@@ -34,24 +34,8 @@
                        improve your experience.</p>
 <![endif]-->
 
-<div ng-include="'components/navbar/navbar.html'"></div>
-<admin-login class="col-md-3 pull-right"></admin-login>
-<!-- /.col-md-3 pull-right -->
-<div class="container">
-  <header>
-    <img ng-src="{{ site.logo }}" />
-  </header>
-  <message-flash></message-flash>
-  <div class="row">
-    <nav-bar class="col-md-3"></nav-bar>
-    <!-- /.col-md-3 -->
-    <ng-view class="col-md-6"></ng-view>
-    <!-- /.col-md-6 -->
-    <footer>{{ site.footer }}</footer>
-  </div>
-  <!-- /.row -->
-</div>
-<!-- /.container -->
+<application></application>
+
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
   //noinspection OverlyComplexFunctionJS
@@ -111,10 +95,14 @@
 <script src="app/admin/pages/pages-upsert.controller.js"></script>
 <script src="app/admin/pages/pages.controller.js"></script>
 <script src="app/admin/slugify/slugify.filter.js"></script>
-<script src="app/Application/Application.controller.js"></script>
+<script src="app/application/application.controller.js"></script>
+<script src="app/application/application.directive.js"></script>
 <script src="app/main/main.js"></script>
 <script src="app/main/main.controller.js"></script>
+<script src="app/pages/pages.js"></script>
+<script src="app/pages/pages.controller.js"></script>
 <script src="app/PagesFactory/PagesFactory.service.js"></script>
+<script src="components/adminLogin/adminLogin.directive.js"></script>
 <script src="components/auth/auth.service.js"></script>
 <script src="components/auth/user.service.js"></script>
 <script src="components/message-flash/controllers/message-flash.controller.js"></script>

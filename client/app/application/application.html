@@ -1,0 +1,19 @@
+<admin-login class="col-md-3 pull-right"></admin-login>
+<!-- /.col-md-3 pull-right -->
+<div class="container">
+  <header>
+    <img ng-src="{{ site.logo }}" />
+  </header>
+  <message-flash></message-flash>
+  <div class="row">
+    <navbar class="col-md-3"></navbar>
+    <!-- /.col-md-3 -->
+    <ng-view class="col-md-6"></ng-view>
+    <!-- /.col-md-6 -->
+
+  </div>
+  <!-- /.row -->
+  <footer class="footer">{{ site.footer }}</footer>
+  <!-- /.footer -->
+</div>
+<!-- /.container -->
