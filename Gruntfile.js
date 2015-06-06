@@ -415,6 +415,14 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.client %>',
         dest: '.tmp/',
         src: ['{app,components}/**/*.css']
+      },
+      fonts: {
+        expand: true,
+        cwd: '<%= yeoman.client %>',
+        dest: '<%= yeoman.client %>/assets/fonts',
+        src: ['bower_components/bootstrap-sass-official/assets/fonts/**'],
+        flatten: true,
+        filter: 'isFile'
       }
     },
 
@@ -616,6 +624,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
+        'copy:fonts',
         'injector:sass',
         'concurrent:server',
         'injector',
@@ -628,6 +637,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'env:all',
+      'copy:fonts',
       'injector:sass',
       'concurrent:server',
       'injector',
@@ -686,6 +696,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'copy:fonts',
     'injector:sass',
     'concurrent:dist',
     'injector',

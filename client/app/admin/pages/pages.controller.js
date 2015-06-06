@@ -9,7 +9,6 @@ angular.module('angularCmsApp')
 
     PagesFactory.getPages()
       .then(function (response) {
-        $log.debug('response: ', response);
         $scope.pages = response.data;
         socket.syncUpdates('page', $scope.pages);
       })

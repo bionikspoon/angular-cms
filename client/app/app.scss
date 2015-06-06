@@ -1,4 +1,4 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$icon-font-path: "/assets/fonts/";
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
@@ -22,4 +22,5 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'admin/pages/pages.scss';
 @import 'admin/upsert-page/upsert-page.scss';
 @import 'main/main.scss';
+@import 'message-flash/message-flash.scss';
 // endinjector
