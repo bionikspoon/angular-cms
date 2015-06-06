@@ -51,7 +51,10 @@
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js',
+  })(window,
+    document,
+    'script',
+    '//www.google-analytics.com/analytics.js',
     'ga');
 
   ga('create', 'UA-XXXXX-X');
@@ -79,25 +82,24 @@
 
 <!-- build:js({.tmp,client}) app/app.js -->
 <script src="app/app.js"></script>
-<script src="app/message-flash/message-flash.js"></script>
 <!-- injector:js -->
-<script src="app/PagesFactory/PagesFactory.service.js"></script>
+<script src="app/message-flash/message-flash.module.js"></script>
 <script src="app/account/account.js"></script>
 <script src="app/account/login/login.controller.js"></script>
 <script src="app/account/settings/settings.controller.js"></script>
 <script src="app/account/signup/signup.controller.js"></script>
-<script src="app/admin/admin.controller.js"></script>
 <script src="app/admin/admin.js"></script>
-<script src="app/admin/pages/pages.controller.js"></script>
+<script src="app/admin/admin.controller.js"></script>
 <script src="app/admin/pages/pages.js"></script>
-<script src="app/admin/upsert-page/upsert-page.controller.js"></script>
+<script src="app/admin/pages/pages.controller.js"></script>
 <script src="app/admin/upsert-page/upsert-page.js"></script>
-<script src="app/main/main.controller.js"></script>
+<script src="app/admin/upsert-page/upsert-page.controller.js"></script>
 <script src="app/main/main.js"></script>
+<script src="app/main/main.controller.js"></script>
 <script src="app/message-flash/controllers/message-flash.controller.js"></script>
 <script src="app/message-flash/directives/messageFlash.directive.js"></script>
-<script src="app/message-flash/message-flash.js"></script>
 <script src="app/message-flash/services/MessageFlashFactory.service.js"></script>
+<script src="app/PagesFactory/PagesFactory.service.js"></script>
 <script src="components/auth/auth.service.js"></script>
 <script src="components/auth/user.service.js"></script>
 <script src="components/mongoose-error/mongoose-error.directive.js"></script>

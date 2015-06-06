@@ -528,8 +528,8 @@ module.exports = function (grunt) {
     },
 
     injector: {
-      options: {}, // Inject application script files into index.html (doesn't
-                   // include bower)
+      // Inject application script files into index.html (doesn't include bower)
+      options: {},
       scripts: {
         options: {
           transform: function (filePath) {
@@ -538,7 +538,23 @@ module.exports = function (grunt) {
             return '<script src="' + filePath + '"></script>';
           },
           starttag: '<!-- injector:js -->',
-          endtag: '<!-- endinjector -->'
+          endtag: '<!-- endinjector -->',
+          sort: function (a, b) {
+            if (a === b) { return 0; }
+            var re_ext = /\.js$/;
+            var re_module = /\.module\.js$/;
+            var sortValue = 0;
+
+            var aSearch = a.search(re_module);
+            sortValue += (  aSearch >= 0) ? -10 : 0;
+            sortValue += (b.search(re_module) >= 0) ? 10 : 0;
+
+            a = a.toLowerCase().replace(re_ext, '');
+            b = b.toLowerCase().replace(re_ext, '');
+
+            sortValue += (a > b) ? 1 : -1;
+            return sortValue;
+          }
         },
         files: {
           '<%= yeoman.client %>/index.html': [
