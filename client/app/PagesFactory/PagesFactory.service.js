@@ -2,7 +2,7 @@
 
 angular.module('angularCmsApp')
 
-  .factory('PagesFactory', function ($http, $log, socket) {
+  .factory('PagesFactory', function ($http) {
     var baseUrl = '/api/pages/';
     var pagesFactory = {};
 
@@ -10,9 +10,6 @@ angular.module('angularCmsApp')
 
     pagesFactory.getPage = function (id) {
       return $http.get(baseUrl + id);
-
-
-
     };
 
     pagesFactory.getPages = function () {

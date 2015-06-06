@@ -2,7 +2,7 @@
 
 angular.module('angularCmsApp')
 
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $window, MessageFlashFactory,$log) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -19,6 +19,8 @@ angular.module('angularCmsApp')
             $location.path('/');
           }) //
           .catch(function (err) {
+            MessageFlashFactory.setMessage(err.message);
+            $log.debug('err.message: ', err.message);
             $scope.errors.other = err.message;
           });
       }
