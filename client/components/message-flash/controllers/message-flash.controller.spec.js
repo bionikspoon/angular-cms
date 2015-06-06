@@ -3,7 +3,7 @@
 describe('Controller: MessageFlashCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('message.flash'));
+  beforeEach(module('AngularCMSApp'));
 
   var MessageFlashCtrl, scope;
 

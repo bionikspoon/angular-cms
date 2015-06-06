@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('message.flash')
+angular.module('AngularCMSApp')
 
   .controller('MessageFlashCtrl',
   function ($scope, $timeout, MessageFlashFactory, MessageFlashActions) {

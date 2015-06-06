@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('message.flash', [])
+angular.module('AngularCMSApp')
 
   .constant('MessageFlashActions', {
     NEW_MESSAGE: 'NEW_MESSAGE'

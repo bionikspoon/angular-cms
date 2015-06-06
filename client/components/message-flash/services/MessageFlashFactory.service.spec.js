@@ -3,7 +3,7 @@
 describe('Service: MessageFlashFactory', function () {
 
   // load the service's module
-  beforeEach(module('message.flash'));
+  beforeEach(module('AngularCMSApp'));
 
   // instantiate service
   var MessageFlashFactory;

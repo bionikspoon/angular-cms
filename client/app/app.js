@@ -6,8 +6,7 @@ angular.module('AngularCMSApp', [
   'ngSanitize',
   'ngRoute',
   'btford.socket-io',
-  'ui.tinymce',
-  'message.flash'
+  'ui.tinymce'
 ])
 
   .config(function ($routeProvider, $locationProvider, $httpProvider) {

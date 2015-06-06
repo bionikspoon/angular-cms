@@ -3,7 +3,7 @@
 describe('Directive: messageFlash', function () {
 
   // load the directive's module
-  beforeEach(module('message.flash'));
+  beforeEach(module('AngularCMSApp'));
 
   var element,
     scope;

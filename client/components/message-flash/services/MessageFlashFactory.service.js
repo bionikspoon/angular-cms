@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('message.flash')
+angular.module('AngularCMSApp')
 
   .factory('MessageFlashFactory', function ($rootScope, MessageFlashActions) {
     var messageFlash = {};

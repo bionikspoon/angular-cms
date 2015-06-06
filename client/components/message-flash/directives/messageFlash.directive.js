@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('message.flash')
+angular.module('AngularCMSApp')
 
   .directive('messageFlash', function () {
 
