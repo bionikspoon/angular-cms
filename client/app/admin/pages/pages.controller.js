@@ -6,8 +6,8 @@ angular.module('AngularCMSApp')
     $scope.message = 'Hello';
     $scope.pages = [];
 
-
     PagesFactory.getPages()
+      
       .then(function (response) {
         $scope.pages = response.data;
         socket.syncUpdates('page', $scope.pages);

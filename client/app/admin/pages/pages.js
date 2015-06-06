@@ -8,5 +8,10 @@ angular.module('AngularCMSApp')
       .when('/admin/pages', {
         templateUrl: 'app/admin/pages/pages.html',
         controller: 'PagesCtrl'
+      })
+
+      .when('/admin/pages/:id', {
+        templateUrl: 'app/admin/pages/pages-upsert.html',
+        controller: 'UpsertPageCtrl'
       });
   });
