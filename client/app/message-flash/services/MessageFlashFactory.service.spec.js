@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: FlashMessageFactory', function () {
+describe('Service: MessageFlashFactory', function () {
 
   // load the service's module
   beforeEach(module('message.flash'));
 
   // instantiate service
-  var FlashMessageFactory;
+  var MessageFlashFactory;
   beforeEach(inject(function (_FlashMessageFactory_) {
-    FlashMessageFactory = _FlashMessageFactory_;
+    MessageFlashFactory = _FlashMessageFactory_;
   }));
 
   it('should do something', function () {
-    expect(!!FlashMessageFactory).toBe(true);
+    expect(!!MessageFlashFactory).toBe(true);
   });
 
 });
