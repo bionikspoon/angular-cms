@@ -4,14 +4,14 @@
 angular.module('AngularCMSApp')
 
   .controller('UpsertPageCtrl',
-  function ($scope, $log, $routeParams, $location, PagesFactory,
+  function ($scope, $log, $routeParams, $location, $filter, PagesFactory,
     MessageFlashFactory) {
     $scope.pageContent = {};
     $scope.pageContent._id = $routeParams.id;
     $scope.heading = 'Add a New Page';
 
     if ($scope.pageContent._id !== '0') {
-      $scope.heading = "Update-page";
+      $scope.heading = 'Update-page';
       PagesFactory.getPage($scope.pageContent._id) //
         .then(function (response) {
           $scope.pageContent = response.data;
@@ -31,6 +31,10 @@ angular.module('AngularCMSApp')
         .catch(function (error) {
           $log.error('error: ', error);
         });
+    };
+
+    $scope.updateUrl = function () {
+      $scope.pageContent.url = $filter('slugify')($scope.pageContent.title);
     };
 
   });

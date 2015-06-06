@@ -39,7 +39,8 @@
                class="form-control"
                id="title"
                ng-model="pageContent.title"
-               placeholder="Page Title" /><!-- /#title.form-control -->
+               placeholder="Page Title"
+               ng-change="updateUrl()" /><!-- /#title.form-control -->
       </div>
               <!-- /.col-sm-10 -->
     </div>
@@ -56,7 +57,8 @@
                class="form-control"
                id="url"
                ng-model="pageContent.url"
-               placeholder="Page Url Alias" /><!-- /#url.form-control -->
+               placeholder="Page Url Alias"
+               readonly /><!-- /#url.form-control -->
       </div>
               <!-- /.col-sm-10 -->
     </div>
@@ -104,8 +106,10 @@
           Save
         </button>
         <!-- /.btn btn-primary -->
-      </div><!-- /.col-sm-10 -->
-    </div><!-- /.form-group -->
+      </div>
+      <!-- /.col-sm-10 -->
+    </div>
+    <!-- /.form-group -->
 
   </form>
   <!-- /#UpsertPageForm.form-horizontal -->
