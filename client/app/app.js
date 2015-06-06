@@ -6,6 +6,7 @@ angular.module('AngularCMSApp', [
   'ngSanitize',
   'ngRoute',
   'btford.socket-io',
+  'ui.tinymce',
   'message.flash'
 ])
 
