@@ -2,13 +2,11 @@
 
 angular.module('message.flash')
 
-  .directive('messageFlash', function () {
+  .directive('messageFlash', function (MessageFlashCtrl) {
 
     return {
-      template: '<div></div>',
-      restrict: 'EA',
-      link: function (scope, element, attrs) {
-        element.text('this is the messageFlash directive');
-      }
+      controller: MessageFlashCtrl,
+      template: '<p ng-if="isVisible" class="alert alert-info">{{ message }}</p>',
+      restrict: 'E'
     };
   });
