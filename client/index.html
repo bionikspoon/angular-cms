@@ -34,9 +34,24 @@
                        improve your experience.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<div ng-view=""></div>
-
+<div ng-include="'components/navbar/navbar.html'"></div>
+<admin-login class="col-md-3 pull-right"></admin-login>
+<!-- /.col-md-3 pull-right -->
+<div class="container">
+  <header>
+    <img ng-src="{{ site.logo }}" />
+  </header>
+  <message-flash></message-flash>
+  <div class="row">
+    <nav-bar class="col-md-3"></nav-bar>
+    <!-- /.col-md-3 -->
+    <ng-view class="col-md-6"></ng-view>
+    <!-- /.col-md-6 -->
+    <footer>{{ site.footer }}</footer>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
   //noinspection OverlyComplexFunctionJS
