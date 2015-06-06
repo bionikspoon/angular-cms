@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
   .factory('User', function ($resource) {
     return $resource('/api/users/:id/:controller', {
       id: '@_id'

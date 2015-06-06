@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
   .controller('PagesCtrl', function ($scope, $log, PagesFactory, socket) {
     $scope.message = 'Hello';

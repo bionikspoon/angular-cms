@@ -1,7 +1,7 @@
 'use strict';
 
 //noinspection OverlyComplexFunctionJS
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
   .factory('Auth',
   function Auth($location, $rootScope, $http, User, $cookieStore, $q) {

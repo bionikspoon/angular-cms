@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];

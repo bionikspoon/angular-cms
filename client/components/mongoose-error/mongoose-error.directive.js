@@ -3,7 +3,7 @@
 /**
  * Removes server error when user updates input
  */
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
   .directive('mongooseError', function () {
     return {
       restrict: 'A',

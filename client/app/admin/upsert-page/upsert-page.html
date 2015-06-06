@@ -1,3 +1,114 @@
-<div class="col-md-12">
-This is the upsert-page view.
-</div>
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="page-header">
+    <h1>{{ heading }}</h1>
+  </div>
+  <!-- /.page-header -->
+
+  <form role="form"
+        class="form-horizontal"
+        id="UpsertPageForm"
+        ng-submit="savePage()">
+
+    <!--Input for Page Id-->
+    <div class="form-group">
+      <label for="id"
+             class="col-sm-2 control-label">
+        Page Id
+      </label><!-- /.col-sm-2 control-label -->
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="id"
+               ng-model="pageContent._id"
+               placeholder="Page Id"
+               readonly /><!-- /#id.form-control -->
+      </div>
+              <!-- /.col-sm-10 -->
+    </div>
+    <!-- /.form-group -->
+
+    <!--Input for Page Title-->
+    <div class="form-group">
+      <label for="title"
+             class="col-sm-2 control-label">
+        Page Title
+      </label><!-- /.col-sm-2 control-label -->
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="title"
+               ng-model="pageContent.title"
+               placeholder="Page Title" /><!-- /#title.form-control -->
+      </div>
+              <!-- /.col-sm-10 -->
+    </div>
+    <!-- /.form-group -->
+
+    <!--Input for Page Url Alias-->
+    <div class="form-group">
+      <label for="url"
+             class="col-sm-2 control-label">
+        Page Url Alias
+      </label><!-- /.col-sm-2 control-label -->
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="url"
+               ng-model="pageContent.url"
+               placeholder="Page Url Alias" /><!-- /#url.form-control -->
+      </div>
+              <!-- /.col-sm-10 -->
+    </div>
+    <!-- /.form-group -->
+
+    <!--Input for Menu Index-->
+    <div class="form-group">
+      <label for="menuIndex"
+             class="col-sm-2 control-label">
+        Menu Index
+      </label><!-- /.col-sm-2 control-label -->
+      <div class="col-sm-10">
+        <input type="number"
+               class="form-control"
+               id="menuIndex"
+               ng-model="pageContent.menuIndex"
+               placeholder="Menu Index" /><!-- /#menuIndex.form-control -->
+      </div>
+              <!-- /.col-sm-10 -->
+    </div>
+    <!-- /.form-group -->
+
+    <!--Input for Page Content-->
+    <div class="form-group">
+      <label for="content"
+             class="col-sm-2 control-label">
+        Page Content
+      </label><!-- /.col-sm-2 control-label -->
+      <div class="col-sm-10">
+        <textarea rows="15"
+                  class="form-control"
+                  id="content"
+                  ng-model="pageContent.content"
+                  placeholder="Page Content">
+        </textarea><!-- /#content.form-control -->
+      </div>
+    </div>
+    <!-- /.form-group -->
+
+    <!--Input for Save-->
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10 ">
+        <button class="btn btn-primary"
+                type="submit">
+          Save
+        </button>
+        <!-- /.btn btn-primary -->
+      </div><!-- /.col-sm-10 -->
+    </div><!-- /.form-group -->
+
+  </form>
+  <!-- /#UpsertPageForm.form-horizontal -->
+
+
+</div><!-- /.container -->

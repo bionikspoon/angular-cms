@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
-  .factory('PagesFactory', function ($http) {
+  .factory('PagesFactory', function ($http, $log) {
     var baseUrl = '/api/pages/';
     var pagesFactory = {};
 
@@ -19,10 +19,10 @@ angular.module('angularCmsApp')
     pagesFactory.savePage = function (pageData) {
       var id = pageData._id;
 
-      if (id === 0) {
-        return $http.post(baseUrl);
+      if (id === '0') {
+        return $http.post(baseUrl, pageData);
       } else {
-        return $http.put(baseUrl + id);
+        return $http.put(baseUrl + id, pageData);
       }
     };
 

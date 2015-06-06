@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCmsApp', [
+angular.module('AngularCMSApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',

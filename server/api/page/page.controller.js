@@ -22,6 +22,9 @@ exports.show = function (req, res) {
 
 // Creates a new page in the DB.
 exports.create = function (req, res) {
+
+  if (req.body._id) { delete req.body._id; }
+  console.log(req.body);
   req.body.date = new Date(Date.now());
   Page.create(req.body, function (err, page) {
     if (err) { return handleError(res, err); }

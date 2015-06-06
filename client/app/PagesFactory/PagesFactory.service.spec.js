@@ -3,7 +3,7 @@
 describe('Service: PagesFactory', function () {
 
   // load the service's module
-  beforeEach(module('angularCmsApp'));
+  beforeEach(module('AngularCMSApp'));
 
   // instantiate service
   var PagesFactory;

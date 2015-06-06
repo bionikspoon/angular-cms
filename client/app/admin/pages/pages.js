@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
   .config(function ($routeProvider) {
     $routeProvider

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
   .controller('SettingsCtrl', function ($scope, User, Auth) {
     $scope.errors = {};

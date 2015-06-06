@@ -3,7 +3,7 @@
 describe('Controller: PagesCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('angularCmsApp'));
+  beforeEach(module('AngularCMSApp'));
 
   var PagesCtrl, scope;
 

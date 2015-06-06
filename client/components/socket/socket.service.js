@@ -1,7 +1,7 @@
 /* global io */
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
   .factory('socket', function (socketFactory, Auth) {
 

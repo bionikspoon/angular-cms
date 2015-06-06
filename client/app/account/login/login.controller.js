@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCmsApp')
+angular.module('AngularCMSApp')
 
   .controller('LoginCtrl', function ($scope, Auth, $location, $window, MessageFlashFactory,$log) {
     $scope.user = {};
