@@ -3,6 +3,8 @@
 var _ = require('lodash');
 var Page = require('./page.model');
 
+var reValidObjectId = /^[a-fA-F0-9]$/;
+
 // Get list of pages
 exports.index = function (req, res) {
   Page.find(function (err, pages) {
@@ -13,11 +15,11 @@ exports.index = function (req, res) {
 
 // Get a single page
 exports.show = function (req, res) {
-  Page.findById(req.params.id, function (err, page) {
-    if (err) { return handleError(res, err); }
-    if (!page) { return res.send(404); }
-    return res.json(page);
-  });
+  Page.findOne({url: req.params.id}, function (err, page) {
+      if (err) { return handleError(res, err); }
+      if (!page) { return res.send(404); }
+      return res.json(page);
+    });
 };
 
 // Creates a new page in the DB.
