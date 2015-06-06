@@ -10,13 +10,8 @@ var authTypes = [
   'google'
 ];
 
-//var UserSchema  = new Schema ({
-//  username: String,
-//  password: String
-//});
-
 var UserSchema = new Schema({
-  username: String,
+  name: String,
   email: {
     type: String,
     lowercase: true
@@ -50,7 +45,7 @@ UserSchema.virtual('password') //
 // Public profile information
 UserSchema.virtual('profile').get(function () {
   return {
-    'username': this.username,
+    'name': this.name,
     'role': this.role
   };
 });

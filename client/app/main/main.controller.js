@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('angularCmsApp').controller('MainCtrl',
-  function ($scope, $http, socket) {
+angular.module('angularCmsApp')
+
+  .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function (awesomeThings) {

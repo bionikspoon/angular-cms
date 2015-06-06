@@ -1,3 +1,33 @@
-<div class="col-md-12">
-This is the pages view.
-</div>
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="page-header">
+    <h1>
+      Pages list </h1>
+  </div>
+  <!-- /.page-header -->
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Menu Index</th>
+        <th>Title</th>
+        <th>URL</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+
+      <tr ng-repeat="page in pages">
+        <td>{{ page.menuIndex }}</td>
+        <td>{{ page.title }}</td>
+        <td>{{ page.url }}</td>
+        <td><a ng-href="/admin/upsert-page/{{ page._id }}">Edit</a></td>
+        <td><a ng-href
+               ng-click="deletePage(page._id)">Delete</a></td>
+      </tr>
+    </table>
+    <!-- /.table -->
+  </div>
+  <!-- /.col-md-12 -->
+
+</div><!-- /.container -->

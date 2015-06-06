@@ -1,8 +1,8 @@
+'use strict';
 /**
  * Main application routes
  */
-
-'use strict';
+var path = require('path');
 
 var errors = require('./components/errors');
 
@@ -22,6 +22,10 @@ module.exports = function (app) {
   // All other routes should redirect to the index.html
   app.route('/*') //
     .get(function (req, res) {
-      res.sendFile(app.get('appPath') + '/index.html');
+      var indexPath = path.normalize( //
+        path.join(__dirname, '..', app.get('appPath'), 'index.html') //
+      );
+
+      res.sendFile(indexPath);
     });
 };

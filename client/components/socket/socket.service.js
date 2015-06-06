@@ -3,14 +3,15 @@
 
 angular.module('angularCmsApp')
 
-  .factory('socket', function (socketFactory) {
+  .factory('socket', function (socketFactory, Auth) {
 
     // socket.io now auto-configures its connection when we ommit a connection
     // url
     var ioSocket = io('', {
+      path: '/socket.io-client',
       // Send auth token on connection, you will need to DI the Auth service
-      // above 'query': 'token=' + Auth.getToken()
-      path: '/socket.io-client'
+      // above
+      query: 'token=' + Auth.getToken()
     });
 
     var socket = socketFactory({
