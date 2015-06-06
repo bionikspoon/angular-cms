@@ -3,8 +3,8 @@
 angular.module('message.flash')
 
   .controller('MessageFlashCtrl',
-  function ($scope, $timeout, MessageFlashFactory, MessageFlashConstants) {
-    $scope.$on(MessageFlashConstants.NEW_MESSAGE, function () {
+  function ($scope, $timeout, MessageFlashFactory, MessageFlashActions) {
+    $scope.$on(MessageFlashActions.NEW_MESSAGE, function () {
       $scope.message = MessageFlashFactory.getMessage();
       $scope.isVisible = true;
 

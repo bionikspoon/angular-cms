@@ -2,6 +2,6 @@
 
 angular.module('message.flash', [])
 
-  .constant('MessageFlashConstants', {
+  .constant('MessageFlashActions', {
     NEW_MESSAGE: 'NEW_MESSAGE'
   });

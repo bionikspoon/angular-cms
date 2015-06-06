@@ -2,7 +2,7 @@
 
 angular.module('message.flash')
 
-  .factory('MessageFlashFactory', function ($rootScope, MessageFlashConstants) {
+  .factory('MessageFlashFactory', function ($rootScope, MessageFlashActions) {
     var messageFlash = {};
     var message = '';
 
@@ -12,7 +12,7 @@ angular.module('message.flash')
 
     messageFlash.setMessage = function (newMessage) {
       message = newMessage;
-      $rootScope.$broadcast(MessageFlashConstants.NEW_MESSAGE);
+      $rootScope.$broadcast(MessageFlashActions.NEW_MESSAGE);
     };
 
     return messageFlash;
